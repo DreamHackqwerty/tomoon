@@ -1,0 +1,24 @@
+proxies:
+  - name: "USA 2"
+    type: vmess
+    server: d260.clco.in
+    port: 32689
+    uuid: 3aefdf97-1cc8-4f38-df7e-a96a674be242
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /
+    udp: true
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "USA 2"
+      - DIRECT
+
+rules:
+  - MATCH,Proxy
